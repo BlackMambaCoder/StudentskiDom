@@ -12,6 +12,8 @@ namespace StudentsDorm101.Data.Services
     using MongoDB.Bson;
     using MongoDB.Driver;
     using System.IO;
+    using MongoDB.Driver.GridFS;
+    using MongoDB.Driver.Builders;
 
     public class StudentService : EntityService<RegistrationStudent>
     {
@@ -62,6 +64,19 @@ namespace StudentsDorm101.Data.Services
         public IEnumerable<RegistrationStudent> GetAll()
         {
             return this.GetAll(registrationCollectionName);
+        }
+
+        public MongoGridFSStream GetFile(string id)
+        {
+            ObjectId oId = new ObjectId(id);
+            var stream = this.GetFileById(oId, registrationCollectionName);
+
+            return stream;
+        }
+
+        public void RemoveStudent(ObjectId id)
+        {
+            this.Delete(id, registrationCollectionName);
         }
 
         public override void Update(RegistrationStudent student, string collectionName)

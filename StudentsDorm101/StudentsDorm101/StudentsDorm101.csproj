@@ -260,6 +260,10 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Views\Administration\ContestDetails.aspx" />
+    <Content Include="Views\Administration\Details.aspx" />
+    <Content Include="Views\Administration\Index.aspx" />
+    <Content Include="Views\Administration\Save2List.aspx" />
     <Content Include="Views\Registration\Index.aspx" />
     <Content Include="Views\Registration\NotFound.aspx" />
     <Content Include="PrijavaZaKonkurs.aspx" />

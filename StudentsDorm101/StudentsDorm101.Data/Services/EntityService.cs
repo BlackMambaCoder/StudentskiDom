@@ -11,6 +11,7 @@ namespace StudentsDorm101.Data.Services
     using Entities;
     using MongoDB.Driver.Linq;
     using MongoDB.Driver.Builders;
+using MongoDB.Driver.GridFS;
 
     public abstract class EntityService<T> : IEntityService<T> where T : IEntity
     {
@@ -44,14 +45,13 @@ namespace StudentsDorm101.Data.Services
 
         public virtual void Delete(ObjectId id, string collectionName)
         {
-            var result = this.MongoConnectionHandler.getCollection(collectionName).Remove(
-                Query<T>.EQ(e => e.id,
-                id)); 
+            var query = Query<T>.EQ(e => e.id, id);
+            var result = this.MongoConnectionHandler.getCollection(collectionName).Remove(query);
 
-            //if (!result.Ok)
-            //{
-            //    //// Something went wrong
-            //}
+            if (!result.Ok)
+            {
+                //// Something went wrong
+            }
         }
 
         public virtual T GetById(ObjectId id, string collectionName)
@@ -86,6 +86,15 @@ namespace StudentsDorm101.Data.Services
         public virtual IEnumerable<T> GetAll(string collectionName)
         {
             return this.MongoConnectionHandler.getCollection(collectionName).FindAll();
+        }
+
+        public virtual MongoGridFSStream GetFileById(ObjectId id, string collectionName)
+        {
+            var file = this.MongoConnectionHandler.dataBase.GridFS.FindOne(Query.EQ("_id", id));
+
+            MongoGridFSStream stream = file.OpenRead();
+
+            return stream;
         }
     }
 }

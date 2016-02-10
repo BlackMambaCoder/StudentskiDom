@@ -32,7 +32,7 @@
                 <%: Html.DisplayFor(modelItem => item.name) %>
             </td>
             <td>
-                <%: Html.ActionLink("Details", "Details", new { id = Model.First().id }) %>
+                <%: Html.ActionLink("Details", "Details", new { id = item.id }) %>
             </td>
         </tr>
     <% } %>
