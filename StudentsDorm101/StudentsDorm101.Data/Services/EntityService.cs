@@ -59,26 +59,26 @@ using MongoDB.Driver.GridFS;
             //var entityQuery = Query<T>.EQ(e => e.id, id);
             var collection = this.MongoConnectionHandler.getCollection(collectionName);
 
-            //var linqQuery = from registrationStudent in collection.AsQueryable<T>()
-            //                where registrationStudent.id == id
-            //                select registrationStudent;
+            var linqQuery = from registrationStudent in collection.AsQueryable<T>()
+                            where registrationStudent.id == id
+                            select registrationStudent;
 
-            //T result = linqQuery.First<T>();
+            T result = linqQuery.First<T>();
 
-            var res = collection.FindAll();
+            //var res = collection.FindAll();
 
-            long c = res.Count();
+            //long c = res.Count();
 
-            try
-            {
-                T s = res.First<T>();
-            }
-            catch (Exception ex)
-            {
+            //try
+            //{
+            //    T s = res.First<T>();
+            //}
+            //catch (Exception ex)
+            //{
 
-            }
+            //}
 
-            return res.First();
+            return result;
         }
  
         public abstract void Update(T entity, string collectionName);
