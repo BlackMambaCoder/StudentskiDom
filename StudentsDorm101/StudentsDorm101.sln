@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsDorm101", "StudentsDorm101\StudentsDorm101.csproj", "{8FDB4243-8B1F-48AF-9F99-669627C437D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsDorm101.Tests", "StudentsDorm101.Tests\StudentsDorm101.Tests.csproj", "{E7C643BA-1BB3-4536-997D-F21279ED4AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsDorm101.Data", "StudentsDorm101.Data\StudentsDorm101.Data.csproj", "{9C8682D8-9961-4781-A473-7C90DD45F440}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FDB4243-8B1F-48AF-9F99-669627C437D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDB4243-8B1F-48AF-9F99-669627C437D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDB4243-8B1F-48AF-9F99-669627C437D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDB4243-8B1F-48AF-9F99-669627C437D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C643BA-1BB3-4536-997D-F21279ED4AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C643BA-1BB3-4536-997D-F21279ED4AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C643BA-1BB3-4536-997D-F21279ED4AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C643BA-1BB3-4536-997D-F21279ED4AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C8682D8-9961-4781-A473-7C90DD45F440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8682D8-9961-4781-A473-7C90DD45F440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C8682D8-9961-4781-A473-7C90DD45F440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8682D8-9961-4781-A473-7C90DD45F440}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

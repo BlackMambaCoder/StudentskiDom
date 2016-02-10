@@ -1,0 +1,7 @@
+c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\obj\Debug\StudentsDorm101.Data.csprojResolveAssemblyReference.cache
+c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\bin\Debug\StudentsDorm101.Data.dll
+c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\bin\Debug\StudentsDorm101.Data.pdb
+c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\obj\Debug\StudentsDorm101.Data.dll
+c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\obj\Debug\StudentsDorm101.Data.pdb
+c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\bin\Debug\MongoDB.Bson.dll
+c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\bin\Debug\MongoDB.Driver.dll

@@ -1,0 +1,7 @@
+﻿
+>>>>>	DATABASENAME	<<<<<
+	>>	studentskiDom	<<
+
+>>>>>	COLLECTIONS		<<<<<
+
+	>> Registration student : "registrationStudent"
