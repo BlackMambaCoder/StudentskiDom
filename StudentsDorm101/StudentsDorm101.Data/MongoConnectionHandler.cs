@@ -11,17 +11,13 @@ namespace StudentsDorm101.Data
 
     public class MongoConnectionHandler<TObject> where TObject : IEntity
     {
-        private string connectionString { get; set; }
         private MongoServer server { get; set; }
         public MongoDatabase dataBase { get; set; }
-        public string dataBaseName { get; set; }
 
         public MongoConnectionHandler()
         {
-            this.connectionString = "mongodb://localhost/?safe=true";
-            this.server = MongoServer.Create(this.connectionString);
-            this.dataBaseName = "studentskiDom";
-            this.dataBase = this.server.GetDatabase(this.dataBaseName);
+            this.server = MongoServer.Create(MongoDBNames.connectionString);
+            this.dataBase = this.server.GetDatabase(MongoDBNames.DataBaseName);
         }
 
         public MongoCollection<TObject> getCollection(string collectionName)

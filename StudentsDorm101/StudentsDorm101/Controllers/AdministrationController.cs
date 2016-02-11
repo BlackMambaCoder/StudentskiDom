@@ -23,6 +23,22 @@ namespace StudentsDorm101.Controllers
         }
 
         //
+        // GET: /Administration/GetStudents
+        public ActionResult GetStudents()
+        {
+            IEnumerable<RegistrationStudent> students = new StudentService().GetAll();
+
+            return View(students);
+        }
+
+        //
+        // GET: /Administration/PrijavaZaKonkurs
+        public void PrijavaZaKonkurs()
+        {
+            Response.Redirect("PrijavaZaKonkurs.aspx");
+        }
+
+        //
         // GET: /Administration/Details
         public ActionResult Details(string id)
         {
@@ -47,7 +63,10 @@ namespace StudentsDorm101.Controllers
         public ActionResult Save2List(FormCollection formValues)
         {
             ContestStudent student = new ContestStudent();
+
             UpdateModel(student);
+
+            student.SetCredit();
 
             new ContestStudentService().UploadContestStudent(student);
 
@@ -85,5 +104,22 @@ namespace StudentsDorm101.Controllers
             return View(student);
         }
 
+        //
+        // GET: /Administration/FinalList
+        public ActionResult FinalList()
+        {
+            IEnumerable<ContestStudent> students = new ContestStudentService().GetContestStudentsArrangedByCredits();
+
+            return View(students);
+        }
+
+        //
+        // GET: /Administration/FinalListMoveIn
+        public ActionResult FinalListMoveIn()
+        {
+            IEnumerable<ContestStudent> students = new ContestStudentService().GetContestStudents(120);
+
+            return View();
+        }
     }
 }

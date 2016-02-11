@@ -1,0 +1,9 @@
+conn = new Mongo();
+db = conn.getDB("studentiProba");
+
+db.registrationStudent.insert(
+	{
+name: "name",
+surname: "surname"
+}
+)

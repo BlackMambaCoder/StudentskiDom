@@ -10,7 +10,7 @@ namespace StudentsDorm101.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Message = "Ostajemo u 21-om veku.";
 
             return View();
         }
@@ -27,6 +27,11 @@ namespace StudentsDorm101.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Registry()
+        {
+            return Redirect("~/PrijavaZaKonkurs.aspx");
         }
     }
 }

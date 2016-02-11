@@ -17,8 +17,6 @@ namespace StudentsDorm101.Data.Services
 
     public class StudentService : EntityService<RegistrationStudent>
     {
-        private const string registrationCollectionName = "registrationStudent";
-
         public void AddNewStudent(RegistrationStudent student)
         {
             var db = this.MongoConnectionHandler.dataBase;
@@ -32,12 +30,12 @@ namespace StudentsDorm101.Data.Services
             student.incomingDocumentId = incomingDoc.Id;
             student.facultyDocumentId = facultyDoc.Id;
 
-            this.Create(student, registrationCollectionName);
+            this.Create(student, MongoDBNames.registrationStudentCollectionName);
         }
 
         public RegistrationStudent GetStudentByPersonalNo(int personalNo)
         {
-            IEnumerable<RegistrationStudent> students = this.GetAll(registrationCollectionName);
+            IEnumerable<RegistrationStudent> students = this.GetAll(MongoDBNames.registrationStudentCollectionName);
 
             RegistrationStudent student = new RegistrationStudent();
 
@@ -56,27 +54,27 @@ namespace StudentsDorm101.Data.Services
         public RegistrationStudent GetStudentById(string id)
         {
             ObjectId oId = new ObjectId(id);
-            RegistrationStudent student = this.GetById(oId, registrationCollectionName);
+            RegistrationStudent student = this.GetById(oId, MongoDBNames.registrationStudentCollectionName);
 
             return student;
         }
 
         public IEnumerable<RegistrationStudent> GetAll()
         {
-            return this.GetAll(registrationCollectionName);
+            return this.GetAll(MongoDBNames.registrationStudentCollectionName);
         }
 
         public MongoGridFSStream GetFile(string id)
         {
             ObjectId oId = new ObjectId(id);
-            var stream = this.GetFileById(oId, registrationCollectionName);
+            var stream = this.GetFileById(oId, MongoDBNames.registrationStudentCollectionName);
 
             return stream;
         }
 
         public void RemoveStudent(ObjectId id)
         {
-            this.Delete(id, registrationCollectionName);
+            this.Delete(id, MongoDBNames.registrationStudentCollectionName);
         }
 
         public override void Update(RegistrationStudent student, string collectionName)

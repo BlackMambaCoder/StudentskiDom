@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<StudentsDorm101.Data.Entities.RegistrationStudent>" %>
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<StudentsDorm101.Data.Entities.RegistrationStudent>" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Details
-</asp:Content>
+<!DOCTYPE html>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-<h2>Details</h2>
-
-<fieldset>
-    <legend>RegistrationStudent</legend>
-
-    <div class="display-label">
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>RegistrationDetails</title>
+</head>
+<body>
+    <fieldset>
+        <legend>RegistrationStudent</legend>
+    
+        <div class="display-label">
         <%: Html.Name("Ime:") %>
         </div>
         <div class="display-field">
@@ -89,16 +89,13 @@
         <div class="display-field">
             <%: Html.DisplayFor(model => model.indexNumber) %>
         </div>
-</fieldset>
-<p>
-    <%: Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) %> |
-    <%: Html.ActionLink("Back to List", "Index") %>
-</p>
 
-</asp:Content>
+        <p></p>
+    </fieldset>
+    <p>
+        <%: Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) %> |
+        <%: Html.ActionLink("Facebook", "http://facebook.com") %>
+    </p>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
-</asp:Content>
-
-<asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
-</asp:Content>
+</body>
+</html>

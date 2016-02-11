@@ -23,6 +23,19 @@ namespace StudentsDorm101
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            //ViewEngines.Engines.Clear();
+            //ViewEngines.Engines.Add(new CustomViewEngine());
+
+            //RegisterRoutes(RouteTable.Routes);
+        }
+
+        void RegisterRoutes(RouteCollection routes)
+        {
+        //    routes.MapPageRoute("",
+        //"SalesReport/{locale}/{year}/{*queryvalues}", "~/PrijavaZaKonkurs.aspx");
+
+            routes.MapPageRoute("", "", "~/PrijavaZaKonkurs.aspx");
         }
     }
 }

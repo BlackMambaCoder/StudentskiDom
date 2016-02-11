@@ -9,7 +9,7 @@ using MongoDB.Driver;
 
 namespace StudentsDorm101.Data.Entities
 {
-    public class RegistrationStudent : Student, IEntity
+    public class RegistrationStudent : Student
     {
         //public MongoGridFSFileInfo incomingDocument { get; set; }
         //public MongoGridFSFileInfo facultyDocument { get; set; }

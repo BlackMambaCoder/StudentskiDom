@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<StudentsDorm101.Data.Entities.RegistrationStudent>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<StudentsDorm101.Data.Entities.RegistrationStudent>" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    Details
+</asp:Content>
 
-<html>
-<head runat="server">
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <fieldset>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+<h2>Details</h2>
+
+<fieldset>
         <legend>RegistrationStudent</legend>
     
         <div class="display-label">
@@ -89,8 +89,14 @@
         </div>
     </fieldset>
     <p>
-        <%: Html.ActionLink("Unesi student u listu", "Save2List", new { target = "_blank" })%> |
+        <%: Html.ActionLink("Unesi student u listu", "Save2List", new { controller = "Administration" }, new { target = "_blank" })%> |
         <%: Html.ActionLink("Back to List", "Index") %>
     </p>
-</body>
-</html>
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
+</asp:Content>

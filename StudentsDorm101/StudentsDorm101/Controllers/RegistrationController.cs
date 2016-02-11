@@ -40,11 +40,9 @@ namespace StudentsDorm101.Controllers
 
         //
         // GET: /Registration/Create
-        public ActionResult Create()
+        public void Create()
         {
-            RegistrationStudent student = new RegistrationStudent();
-
-            return View(student);
+            Response.Redirect("PrijavaZaKonkurs.aspx");
         }
 
         //

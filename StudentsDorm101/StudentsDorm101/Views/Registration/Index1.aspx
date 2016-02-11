@@ -1,14 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<StudentsDorm101.Data.Entities.RegistrationStudent>>" %>
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<IEnumerable<StudentsDorm101.Data.Entities.RegistrationStudent>>" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Index
-</asp:Content>
+<!DOCTYPE html>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-<h2>Index</h2>
-
-<p>
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
         <%: Html.ActionLink("Create New", "../PrijavaZaKonkurs.aspx") %>
     </p>
     <table>
@@ -38,11 +38,5 @@
     <% } %>
     
     </table>
-
-</asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
-</asp:Content>
-
-<asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
-</asp:Content>
+</body>
+</html>

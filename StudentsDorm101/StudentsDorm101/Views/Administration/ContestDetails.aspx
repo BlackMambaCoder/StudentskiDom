@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<StudentsDorm101.Data.Entities.ContestStudent>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<StudentsDorm101.Data.Entities.ContestStudent>" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    ContestDetails
+</asp:Content>
 
-<html>
-<head runat="server">
-    <meta name="viewport" content="width=device-width" />
-    <title>ContestDetails</title>
-</head>
-<body>
-    <fieldset>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+<h2>ContestDetails</h2>
+
+<fieldset>
         <legend>ContestStudent</legend>
     
         <div class="display-label">
@@ -110,11 +110,16 @@
         <div class="display-field">
             <%: Html.DisplayFor(model => model.indexNumber) %>
         </div>
-        </div>
     </fieldset>
-    <p>
-        <%: Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) %> |
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </p>
-</body>
-</html>
+<p>
+    <%: Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) %> |
+    <%: Html.ActionLink("Back to List", "Index") %>
+</p>
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
+</asp:Content>

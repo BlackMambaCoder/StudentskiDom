@@ -8,11 +8,8 @@ using StudentsDorm101.Data.Enumerations;
 
 namespace StudentsDorm101.Data.Entities
 {
-    public abstract class Student
+    public abstract class Student : Entity
     {
-        [BsonId]
-        public ObjectId id { get; set; }
-
         public string name { get; set; }
         public string surname { get; set; }
         public EGender gender { get; set; }
