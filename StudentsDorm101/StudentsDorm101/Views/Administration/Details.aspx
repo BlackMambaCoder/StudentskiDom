@@ -7,7 +7,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 <h2>Details</h2>
-
+    <p>
+        <%: Html.ActionLink("Unesi student u listu", "Save2List", new { controller = "Administration" }, new { target = "_blank" })%> |
+        <%: Html.ActionLink("Nazad u listu", "GetStudents") %>
+    </p>
 <fieldset>
         <legend>RegistrationStudent</legend>
     
@@ -89,8 +92,8 @@
         </div>
     </fieldset>
     <p>
-        <%: Html.ActionLink("Unesi student u listu", "Save2List", new { controller = "Administration" }, new { target = "_blank" })%> |
-        <%: Html.ActionLink("Back to List", "Index") %>
+        
+        <%: Html.ActionLink("Pocenta", "Index") %>
     </p>
 
 </asp:Content>

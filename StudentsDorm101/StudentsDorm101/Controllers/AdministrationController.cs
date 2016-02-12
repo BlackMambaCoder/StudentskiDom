@@ -32,13 +32,6 @@ namespace StudentsDorm101.Controllers
         }
 
         //
-        // GET: /Administration/PrijavaZaKonkurs
-        public void PrijavaZaKonkurs()
-        {
-            Response.Redirect("PrijavaZaKonkurs.aspx");
-        }
-
-        //
         // GET: /Administration/Details
         public ActionResult Details(string id)
         {
@@ -68,9 +61,12 @@ namespace StudentsDorm101.Controllers
 
             student.SetCredit();
 
+            // Provera da li je student unet
             new ContestStudentService().UploadContestStudent(student);
 
-            ObjectId id = student.id;
+            RegistrationStudent rStudent = new StudentService().GetStudentByPersonalNo(student.personalNumber);
+
+            ObjectId id = rStudent.id;
 
             new StudentService().RemoveStudent(id);
 

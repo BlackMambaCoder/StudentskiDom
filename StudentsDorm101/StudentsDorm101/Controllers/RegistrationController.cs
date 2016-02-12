@@ -8,6 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
+using StudentsDorm101.Data.Enumerations;
 
 namespace StudentsDorm101.Controllers
 {
@@ -40,70 +42,67 @@ namespace StudentsDorm101.Controllers
         }
 
         //
-        // GET: /Registration/Create
-        public void Create()
-        {
-            Response.Redirect("PrijavaZaKonkurs.aspx");
-        }
-
-        //
-        // POST: /Registration/Create
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Create(RegistrationStudent student, PrijavaZaKonkurs form)
-        {
-            //RegistrationStudent student = new RegistrationStudent();
-
-            UpdateModel(student);
-
-            //if (form._fileUploadIncomingDoc.HasFile)
-            //{
-            //    student.incomingDocumentName = Server.MapPath("") + "\\TemporaryData";
-            //    student.incomingDocumentName += "\\";
-            //    student.incomingDocumentName += form._fileUploadIncomingDoc.PostedFile.FileName;
-            //    form._fileUploadIncomingDoc.PostedFile.SaveAs(student.incomingDocumentName);
-            //}
-
-            //if (form._fileUploadFacultyDoc.HasFile)
-            //{
-            //    student.facultyDocumentName = Server.MapPath("") + "\\TemporaryData";
-            //    student.facultyDocumentName += "\\";
-            //    student.facultyDocumentName += form._fileUploadFacultyDoc.PostedFile.FileName;
-            //    form._fileUploadFacultyDoc.PostedFile.SaveAs(student.facultyDocumentName);
-            //}
-
-            new StudentService().AddNewStudent(student);
-
-            return RedirectToAction("Details", new { id = student.id });
-        }
-
-        //
         // GET: /Registration/Registration
         public ActionResult Registration()
         {
             RegistrationStudent student = new RegistrationStudent();
+
+            //IEnumerable<string> Gender = new string[2];
+
+            string[] Gender = { "female", "male" };
+            string[] Dorm = { "pavilion1", "pavilion2", "pavilion3", "pavilion4" };
+
+            ViewData["gender"] = new SelectList(Gender);
+            ViewData["dorm"] = new SelectList(Dorm);
+
+            //List<SelectListItem> items = new List<SelectListItem>();
+
+            //items.Add(new SelectListItem { Text = "Paviljon 1", Value = "0" , Selected = true });
+            //items.Add(new SelectListItem { Text = "Paviljon 2", Value = "1" });
+            //items.Add(new SelectListItem { Text = "Paviljon 3", Value = "2" });
+            //items.Add(new SelectListItem { Text = "Paviljon 4", Value = "3" });
+
+            //ViewBag.Dorm = items;
 
             return View(student);
         }
 
         //
         // POST: /Registration/Registration
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Registration(HttpPostedFileBase incoming, HttpPostedFileBase faculty)
+        [HttpPost]
+        public ActionResult Registration(HttpPostedFileBase incomingDoc, HttpPostedFileBase facultyDoc)
         {
             RegistrationStudent student = new RegistrationStudent();
 
             UpdateModel(student);
 
-            if (incoming != null && incoming.ContentLength > 0)
+            if (incomingDoc != null && incomingDoc.ContentLength > 0)
             {
-                // extract only the filename
-                var fileName = Path.GetFileName(incoming.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                incoming.SaveAs(path);
+                var fileName = Path.GetFileName(incomingDoc.FileName);
+                student.incomingDocumentName = Path.Combine(Server.MapPath("\\TemporaryData"), fileName);
+                incomingDoc.SaveAs(student.incomingDocumentName);
             }
-            // redirect back to the index action to show the form once again
-            return RedirectToAction("Registration");
+
+            if (facultyDoc != null && facultyDoc.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(facultyDoc.FileName);
+                student.facultyDocumentName = Path.Combine(Server.MapPath("\\TemporaryData"), fileName);
+                facultyDoc.SaveAs(student.facultyDocumentName);
+            }
+
+            bool success = true;
+
+            if (!new StudentService().AddNewStudent(student))
+                success = false;
+
+            System.IO.File.Delete(Path.Combine(Server.MapPath("\\TemporaryData"), student.incomingDocumentName));
+            System.IO.File.Delete(Path.Combine(Server.MapPath("\\TemporaryData"), student.facultyDocumentName));
+
+            //if (success)
+                return RedirectToAction("Details", new { id = student.id });
+
+            //else
+            //    return RedirectToAction("StudentExists");
         }
     }
 }

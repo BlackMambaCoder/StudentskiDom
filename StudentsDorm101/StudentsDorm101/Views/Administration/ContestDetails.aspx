@@ -112,8 +112,7 @@
         </div>
     </fieldset>
 <p>
-    <%: Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) %> |
-    <%: Html.ActionLink("Back to List", "Index") %>
+    <%: Html.ActionLink("Nazad u listu studenata", "GetStudents") %>
 </p>
 
 </asp:Content>

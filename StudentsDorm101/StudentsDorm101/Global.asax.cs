@@ -32,10 +32,16 @@ namespace StudentsDorm101
 
         void RegisterRoutes(RouteCollection routes)
         {
-        //    routes.MapPageRoute("",
-        //"SalesReport/{locale}/{year}/{*queryvalues}", "~/PrijavaZaKonkurs.aspx");
-
-            routes.MapPageRoute("", "", "~/PrijavaZaKonkurs.aspx");
+            routes.MapRoute(
+                "Default", // Route name
+                "{controller}/{action}/{id}", // URL with parameters*
+                new
+                {
+                    controller = "Sales",
+                    action = "ProjectionReport",
+                    id = UrlParameter.Optional
+                }
+            );
         }
     }
 }

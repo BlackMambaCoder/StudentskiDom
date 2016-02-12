@@ -187,6 +187,7 @@
     <Compile Include="PrijavaZaKonkurs.aspx.designer.cs">
       <DependentUpon>PrijavaZaKonkurs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -268,13 +269,9 @@
     <Content Include="Views\Administration\Save2List.aspx" />
     <Content Include="Views\Registration\Details.aspx" />
     <Content Include="Views\Registration\Index.aspx" />
-    <Content Include="Views\Registration\Index1.aspx" />
     <Content Include="Views\Registration\NotFound.aspx" />
     <Content Include="PrijavaZaKonkurs.aspx" />
-    <Content Include="Views\Registration\Details1.aspx" />
     <Content Include="Views\Registration\Registration.aspx" />
-    <Content Include="Views\Registration\Registration2.aspx" />
-    <Content Include="Views\Registration\Registration1.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -342,7 +339,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>64695</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:57071/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

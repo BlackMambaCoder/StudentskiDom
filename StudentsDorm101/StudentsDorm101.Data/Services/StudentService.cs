@@ -17,20 +17,28 @@ namespace StudentsDorm101.Data.Services
 
     public class StudentService : EntityService<RegistrationStudent>
     {
-        public void AddNewStudent(RegistrationStudent student)
+        public bool AddNewStudent(RegistrationStudent student)
         {
-            var db = this.MongoConnectionHandler.dataBase;
+            if (!this.SearchForDuplicate(student.personalNumber))
+            {
+                var db = this.MongoConnectionHandler.dataBase;
 
-            var incomingDoc = db.GridFS.Upload(student.incomingDocumentName);
-            var facultyDoc = db.GridFS.Upload(student.facultyDocumentName);
+                var incomingDoc = db.GridFS.Upload(student.incomingDocumentName);
+                var facultyDoc = db.GridFS.Upload(student.facultyDocumentName);
 
-            student.incomingDocumentName = Path.GetFileName(student.incomingDocumentName);
-            student.facultyDocumentName = Path.GetFileName(student.facultyDocumentName);
+                student.incomingDocumentName = Path.GetFileName(student.incomingDocumentName);
+                student.facultyDocumentName = Path.GetFileName(student.facultyDocumentName);
 
-            student.incomingDocumentId = incomingDoc.Id;
-            student.facultyDocumentId = facultyDoc.Id;
+                student.incomingDocumentId = incomingDoc.Id;
+                student.facultyDocumentId = facultyDoc.Id;
 
-            this.Create(student, MongoDBNames.registrationStudentCollectionName);
+                this.Create(student, MongoDBNames.registrationStudentCollectionName);
+
+                return true;
+            }
+
+            else
+                return false;
         }
 
         public RegistrationStudent GetStudentByPersonalNo(int personalNo)
@@ -80,6 +88,28 @@ namespace StudentsDorm101.Data.Services
         public override void Update(RegistrationStudent student, string collectionName)
         {
 
+        }
+
+        /// <summary>
+        /// 
+        /// Searches for duplicates in DB. If duplicate doesn't exists,
+        /// returns false, otherwise returns true.
+        /// 
+        /// </summary>
+        /// <param name="personalNo"></param>
+        /// <returns></returns>
+        private bool SearchForDuplicate(int personalNo)
+        {
+            bool retValue = false;
+
+            var collection = this.MongoConnectionHandler.getCollection(MongoDBNames.registrationStudentCollectionName);
+            var query = Query<RegistrationStudent>.EQ(p => p.personalNumber, personalNo);
+            var searchResult = collection.Find(query);
+
+            if (searchResult.Count() != 0)
+                retValue = true;
+
+            return retValue;
         }
     }
 }

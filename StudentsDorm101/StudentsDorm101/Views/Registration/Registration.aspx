@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<StudentsDorm101.Data.Entities.RegistrationStudent>" %>
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Registration
 </asp:Content>
@@ -8,28 +10,15 @@
 
 <h2>Registration</h2>
 
+    <form id="form" runat="server" enctype="multipart/form-data">
+
 <% using (Html.BeginForm()) { %>
-    <%: Html.ValidationSummary(true) %>
 
     <fieldset>
         <legend>RegistrationStudent</legend>
 
         <div class="editor-label">
-            <%: Html.Name("Potvrda primanja:") %>
-        </div>
-        <div>
-            <input type="file" name="incoming" />
-        </div>
-
-        <div class="editor-label">
-            <%: Html.Name("Potvrda fakulteta:") %>
-        </div>
-        <div>
-            <input type="file" name="Faculty" />
-        </div>
-
-        <div class="editor-label">
-            <%: Html.LabelFor(model => model.name) %>
+            <%: Html.Name("Ime:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.name) %>
@@ -37,7 +26,7 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.surname) %>
+            <%: Html.Name("Prezime:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.surname) %>
@@ -45,7 +34,23 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.personalNumber) %>
+            <%: Html.Name("Pol:") %>
+        </div>
+
+        <div class="editor-field">
+            <%: Html.DropDownList("gender", ViewData["gender"] as SelectList) %>
+        </div>
+
+        <div class="editor-label">
+            <%: Html.Name("Dom:") %>
+        </div>
+
+        <div class="editor-field">
+            <%: Html.DropDownList("dorm", ViewData["dorm"] as SelectList) %>
+        </div>
+
+        <div class="editor-label">
+            <%: Html.Name("JMBG:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.personalNumber) %>
@@ -53,7 +58,7 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.email) %>
+            <%: Html.Name("e-Posta:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.email) %>
@@ -61,7 +66,7 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.phoneNumber) %>
+            <%: Html.Name("Telefon:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.phoneNumber) %>
@@ -69,7 +74,7 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.faculty) %>
+            <%: Html.Name("Fakultet:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.faculty) %>
@@ -77,7 +82,7 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.enrollYear) %>
+            <%: Html.Name("Godina upisa:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.enrollYear) %>
@@ -85,7 +90,7 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.studyYear) %>
+            <%: Html.Name("Godina studije:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.studyYear) %>
@@ -93,11 +98,25 @@
         </div>
 
         <div class="editor-label">
-            <%: Html.LabelFor(model => model.indexNumber) %>
+            <%: Html.Name("Broj indeksa:") %>
         </div>
         <div class="editor-field">
             <%: Html.EditorFor(model => model.indexNumber) %>
             <%: Html.ValidationMessageFor(model => model.indexNumber) %>
+        </div>
+
+        <div class="editor-label">
+            <%: Html.Name("Potvrda primanja:") %>
+        </div>
+        <div>
+            <input type="file" name="incomingDoc" id="Incoming" />
+        </div>
+
+        <div class="editor-label">
+            <%: Html.Name("Potvrda fakulteta:") %>
+        </div>
+        <div>
+            <input type="file" name="facultyDoc" id="Faculty" />
         </div>
 
         <p>
@@ -105,6 +124,7 @@
         </p>
     </fieldset>
 <% } %>
+        </form>
 
 <div>
     <%: Html.ActionLink("Back to List", "Index") %>

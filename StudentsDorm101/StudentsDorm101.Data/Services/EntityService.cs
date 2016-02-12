@@ -24,29 +24,15 @@ using MongoDB.Driver.GridFS;
 
         public virtual void Create(T entity, string collectionName)
         {
-            var result = this.MongoConnectionHandler.getCollection(collectionName).Save(
-                entity);
-
-            //if (!result.
-            //{
-            //    //// Something went wrong
-            //}
-
-            //var collection = this.MongoConnectionHandler.getCollection("student");
-
-            //var query = Query<RegistrationStudent>.EQ(p => p.id, entity.id);
-            //var item = result.Find(query);
-
-            //if (item.Count() != 0)
-            //{
-            //    collection.Insert(entity);
-            //}
+            var collection = this.MongoConnectionHandler.getCollection(collectionName);
+            var result = collection.Save(entity);
         }
 
         public virtual void Delete(ObjectId id, string collectionName)
         {
+            var collection = this.MongoConnectionHandler.getCollection(collectionName);
             var query = Query<T>.EQ(e => e.id, id);
-            var result = this.MongoConnectionHandler.getCollection(collectionName).Remove(query);
+            var result = collection.Remove(query);
 
             if (!result.Ok)
             {

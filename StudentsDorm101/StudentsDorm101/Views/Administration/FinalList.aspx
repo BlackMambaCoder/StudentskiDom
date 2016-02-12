@@ -8,9 +8,6 @@
 
 <h2>FinalList</h2>
 
-<p>
-    <%: Html.ActionLink("Create New", "Create") %>
-</p>
 <table>
     <tr>
         <th>
@@ -97,12 +94,16 @@
             <%: Html.DisplayFor(modelItem => item.credits) %>
         </td>
         <td>
-            <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) %>
+            <%: Html.ActionLink("Details", "ContestDetails", new { id = item.id }) %>
         </td>
     </tr>
 <% } %>
 
 </table>
+
+    <p>
+        <%: Html.ActionLink("Pocetna", "Index") %>
+    </p>
 
 </asp:Content>
 

@@ -9,7 +9,8 @@
 <h2>Lista prijavljenih studenata</h2>
 
 <p>
-    <%: Html.ActionLink("Lista registrovanih studenata", "FinalList") %>
+    <%: Html.ActionLink("Lista registrovanih studenata", "FinalList") %> |
+    <%: Html.ActionLink("Nazad", "Index") %> 
 </p>
 <table>
         <tr>
@@ -49,7 +50,7 @@
                 <%: Html.DisplayFor(modelItem => item.phoneNumber) %>
             </td>
             <td>
-                <%: Html.ActionLink("Details", "Details", new { id = item.id }) %>
+                <%: Html.ActionLink("Details", "Details", new { id = item.id })%>
             </td>
         </tr>
     <% } %>
