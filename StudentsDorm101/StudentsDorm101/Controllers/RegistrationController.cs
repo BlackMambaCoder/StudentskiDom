@@ -4,6 +4,7 @@ using StudentsDorm101.Data.Services;
 using StudentsDorm101.Views.Registration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -75,5 +76,34 @@ namespace StudentsDorm101.Controllers
             return RedirectToAction("Details", new { id = student.id });
         }
 
+        //
+        // GET: /Registration/Registration
+        public ActionResult Registration()
+        {
+            RegistrationStudent student = new RegistrationStudent();
+
+            return View(student);
+        }
+
+        //
+        // POST: /Registration/Registration
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Registration(HttpPostedFileBase incoming, HttpPostedFileBase faculty)
+        {
+            RegistrationStudent student = new RegistrationStudent();
+
+            UpdateModel(student);
+
+            if (incoming != null && incoming.ContentLength > 0)
+            {
+                // extract only the filename
+                var fileName = Path.GetFileName(incoming.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                incoming.SaveAs(path);
+            }
+            // redirect back to the index action to show the form once again
+            return RedirectToAction("Registration");
+        }
     }
 }

@@ -17,9 +17,9 @@ namespace StudentsDorm101.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<RegistrationStudent> students = new StudentService().GetAll();
+            //IEnumerable<RegistrationStudent> students = new StudentService().GetAll();
 
-            return View(students);
+            return View();
         }
 
         //

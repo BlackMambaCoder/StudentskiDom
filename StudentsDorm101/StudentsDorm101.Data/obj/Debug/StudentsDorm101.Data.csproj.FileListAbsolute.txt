@@ -5,7 +5,6 @@ c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm1
 c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\obj\Debug\StudentsDorm101.Data.pdb
 c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\bin\Debug\MongoDB.Bson.dll
 c:\users\leo\documents\visual studio 2012\Projects\StudentsDorm101\StudentsDorm101.Data\bin\Debug\MongoDB.Driver.dll
-C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101.Data\obj\Debug\StudentsDorm101.Data.csprojResolveAssemblyReference.cache
 C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101.Data\obj\Debug\StudentsDorm101.Data.dll
 C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101.Data\obj\Debug\StudentsDorm101.Data.pdb
 C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101.Data\bin\Debug\StudentsDorm101.Data.dll

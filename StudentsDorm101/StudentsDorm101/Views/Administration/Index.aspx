@@ -6,55 +6,13 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Lista prijavljenih studenata</h2>
+    <div>
+        <%: Html.ActionLink("Studenti koji su se registrovali", "GetStudents") %>
+    </div>
 
-<p>
-    <%: Html.ActionLink("Lista registrovanih studenata", "FinalList") %>
-</p>
-<table>
-        <tr>
-            <th>
-                <%: Html.Name("Ime") %>
-            </th>
-            <th>
-                <%: Html.Name("Prezime") %>
-            </th>
-            <th>
-                <%: Html.Name("JMBG") %>
-            </th>
-            <th>
-                <%: Html.Name("ePosta") %>
-            </th>
-            <th>
-                <%: Html.Name("Telefon") %>
-            </th>
-            <th></th>
-        </tr>
-    
-    <% foreach (var item in Model) { %>
-        <tr>
-            <td>
-                <%: Html.DisplayFor(modelItem => item.name) %>
-            </td>
-            <td>
-                <%: Html.DisplayFor(modelItem => item.surname) %>
-            </td>
-            <td>
-                <%: Html.DisplayFor(modelItem => item.personalNumber) %>
-            </td>
-            <td>
-                <%: Html.DisplayFor(modelItem => item.email) %>
-            </td>
-            <td>
-                <%: Html.DisplayFor(modelItem => item.phoneNumber) %>
-            </td>
-            <td>
-                <%: Html.ActionLink("Details", "Details", new { id = item.id }) %>
-            </td>
-        </tr>
-    <% } %>
-    
-    </table>
+    <div>
+        <%: Html.ActionLink("Lista svih studenata", "FinalList") %>
+    </div>
 
 </asp:Content>
 

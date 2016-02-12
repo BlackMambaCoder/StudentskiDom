@@ -272,6 +272,9 @@
     <Content Include="Views\Registration\NotFound.aspx" />
     <Content Include="PrijavaZaKonkurs.aspx" />
     <Content Include="Views\Registration\Details1.aspx" />
+    <Content Include="Views\Registration\Registration.aspx" />
+    <Content Include="Views\Registration\Registration2.aspx" />
+    <Content Include="Views\Registration\Registration1.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -104,3 +104,5 @@ C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101\bin\
 C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101\obj\Debug\StudentsDorm101.pdb
+C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101\bin\StudentsDorm101.dll.CodeAnalysisLog.xml
+C:\Users\LEO\Documents\GitHub\StudentskiDom\StudentsDorm101\StudentsDorm101\bin\StudentsDorm101.dll.lastcodeanalysissucceeded
